@@ -153,12 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Блок статуса JavaScript
     const statusMsg = document.getElementById('js-status-message');
     if (statusMsg) {
-        statusMsg.textContent = '⚡ JavaScript успешно загружен и инициализирован (Vanilla JS)';
+        statusMsg.textContent = 'JavaScript подключен и работает';
     }
     const summaryOutput = document.getElementById('js-summary-output');
     if (summaryOutput && window.products && window.products.length > 0) {
         const availCount = typeof window.countAvailableProducts === 'function' ? window.countAvailableProducts() : 11;
         const avgPrice = typeof window.calculateAveragePrice === 'function' ? window.calculateAveragePrice() : 10692;
-        summaryOutput.textContent = `Каталог: ${window.products.length} товаров | В наличии: ${availCount} | Средняя цена: ${avgPrice.toLocaleString('ru-RU')} руб.`;
+        summaryOutput.textContent = `В каталоге: ${window.products.length} товаров (в наличии: ${availCount}), средняя цена: ${avgPrice.toLocaleString('ru-RU')} руб.`;
     }
 });

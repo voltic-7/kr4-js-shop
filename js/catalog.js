@@ -33,7 +33,7 @@ const Catalog = {
             if (typeof window.showToast === 'function') window.showToast('Товар удален из избранного', 'info');
         } else {
             favs.push(id);
-            if (typeof window.showToast === 'function') window.showToast('Товар добавлен в избранное ❤️', 'success');
+            if (typeof window.showToast === 'function') window.showToast('Товар добавлен в избранное', 'success');
         }
 
         try {
@@ -304,7 +304,6 @@ const Catalog = {
             card.classList.add('product-card--unavailable');
         }
 
-        // Бейджи ("Новинка", "Хит")
         if (product.isNew) {
             const badge = document.createElement('span');
             badge.className = 'product-card__badge product-card__badge--new';
@@ -317,7 +316,6 @@ const Catalog = {
             card.appendChild(badge);
         }
 
-        // Адаптивное изображение picture/source/img
         const picture = document.createElement('picture');
         const respBase = product.imageResponsive || 'ball';
 
@@ -342,13 +340,11 @@ const Catalog = {
         picture.append(sourceWebp, sourceJpg, img);
         card.appendChild(picture);
 
-        // Категория
         const categoryEl = document.createElement('div');
         categoryEl.className = 'product-card__category';
         categoryEl.textContent = product.categoryName || product.category;
         card.appendChild(categoryEl);
 
-        // Название товара со ссылкой
         const titleEl = document.createElement('h3');
         titleEl.className = 'product-card__title';
 
@@ -361,13 +357,11 @@ const Catalog = {
         titleEl.appendChild(titleLink);
         card.appendChild(titleEl);
 
-        // Описание
         const descEl = document.createElement('p');
         descEl.className = 'product-card__description';
         descEl.textContent = product.description || '';
         card.appendChild(descEl);
 
-        // Цена
         const priceEl = document.createElement('p');
         priceEl.className = 'product-card__price';
         const formattedPrice = typeof formatPrice === 'function'
@@ -376,17 +370,14 @@ const Catalog = {
         priceEl.textContent = `Цена: ${formattedPrice}`;
         card.appendChild(priceEl);
 
-        // Статус наличия товара
         const statusEl = document.createElement('p');
         statusEl.className = `product-card__status ${isAvail ? 'product-card__status--available' : 'product-card__status--unavailable'}`;
         statusEl.textContent = isAvail ? 'В наличии' : 'Нет в наличии';
         card.appendChild(statusEl);
 
-        // Блок кнопок действий
         const actionsEl = document.createElement('div');
         actionsEl.className = 'product-card__actions';
 
-        // Кнопка "В корзину"
         const addBtn = document.createElement('button');
         addBtn.className = 'button';
         addBtn.type = 'button';
@@ -401,7 +392,6 @@ const Catalog = {
         }
         actionsEl.appendChild(addBtn);
 
-        // Кнопка "Заказать"
         const orderBtn = document.createElement('button');
         orderBtn.className = 'button button--secondary';
         orderBtn.type = 'button';
@@ -411,7 +401,6 @@ const Catalog = {
         orderBtn.textContent = 'Заказать';
         actionsEl.appendChild(orderBtn);
 
-        // Кнопка "В избранное"
         const isFav = this.getFavorites().includes(product.id);
         const favBtn = document.createElement('button');
         favBtn.className = `button--favorite${isFav ? ' is-active' : ''}`;
