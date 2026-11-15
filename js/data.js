@@ -295,59 +295,33 @@ const INITIAL_PRODUCTS = [
   }
 ];
 
-// Основной массив товаров согласно Методическим указаниям №16 и №18
+// Основной массив товаров
 const products = INITIAL_PRODUCTS;
 
-// =============================================================================
-// Функции Практического занятия №15 (базовые типы, форматирование, расчеты)
-// =============================================================================
-
-/**
- * Форматирует цену товара с разделителями тысяч и добавлением валюты
- * @param {number} price
- * @returns {string}
- */
+// Форматирование цены
 function formatPrice(price) {
     if (typeof price !== 'number' || isNaN(price)) return '0 руб.';
     return `${price.toLocaleString('ru-RU')} руб.`;
 }
 
-/**
- * Рассчитывает абсолютную сумму скидки в рублях
- * @param {number} price
- * @param {number} discountPercent
- * @returns {number}
- */
+// Расчёт суммы скидки
 function calculateDiscount(price, discountPercent) {
     if (!price || !discountPercent) return 0;
     return Math.round((price * discountPercent) / 100);
 }
 
-/**
- * Рассчитывает итоговую цену со скидкой
- * @param {number} price
- * @param {number} discountPercent
- * @returns {number}
- */
+// Расчёт цены со скидкой
 function calculateFinalPrice(price, discountPercent) {
     return price - calculateDiscount(price, discountPercent);
 }
 
-/**
- * Возвращает текстовый статус доступности товара
- * @param {Object} product
- * @returns {string}
- */
+// Статус наличия товара
 function getProductStatus(product) {
     if (!product) return 'Неизвестно';
     return product.isAvailable ? 'В наличии' : 'Нет в наличии';
 }
 
-/**
- * Формирует краткую текстовую сводку по товару
- * @param {Object} product
- * @returns {string}
- */
+// Краткая сводка по товару
 function createProductSummary(product) {
     if (!product) return '';
     const title = product.title || product.name;
@@ -355,34 +329,17 @@ function createProductSummary(product) {
     return `${title} (${cat}) — ${formatPrice(product.price)} [${getProductStatus(product)}]`;
 }
 
-// =============================================================================
-// Функции Практического занятия №16 (методы массивов: map, filter, sort, reduce)
-// =============================================================================
-
-/**
- * Получает массив названий всех товаров (метод map)
- * @param {Array} items
- * @returns {Array<string>}
- */
+// Список названий товаров
 function getProductTitles(items = products) {
     return items.map((product) => product.title || product.name);
 }
 
-/**
- * Фильтрует товары в наличии (метод filter)
- * @param {Array} items
- * @returns {Array<Object>}
- */
+// Товары в наличии
 function getAvailableProducts(items = products) {
     return items.filter((product) => product.isAvailable);
 }
 
-/**
- * Поиск товаров по названию или описанию без учета регистра
- * @param {Array} items
- * @param {string} query
- * @returns {Array<Object>}
- */
+// Поиск товаров по названию и описанию
 function searchProducts(items = products, query = '') {
     if (!query || typeof query !== 'string') return items;
     const cleanQuery = query.trim().toLowerCase();
@@ -394,23 +351,13 @@ function searchProducts(items = products, query = '') {
     });
 }
 
-/**
- * Фильтрация товаров по категории
- * @param {Array} items
- * @param {string} category
- * @returns {Array<Object>}
- */
+// Фильтрация товаров по категории
 function filterProductsByCategory(items = products, category = 'all') {
     if (!category || category === 'all') return items;
     return items.filter((product) => product.category === category);
 }
 
-/**
- * Сортировка товаров по цене (сортирует копию массива, не мутируя оригинал!)
- * @param {Array} items
- * @param {'asc'|'desc'} direction
- * @returns {Array<Object>}
- */
+// Сортировка товаров по цене
 function sortProductsByPrice(items = products, direction = 'asc') {
     const copy = [...items];
     return copy.sort((a, b) => {
@@ -418,12 +365,7 @@ function sortProductsByPrice(items = products, direction = 'asc') {
     });
 }
 
-/**
- * Сортировка товаров по названию (А-Я или Я-А)
- * @param {Array} items
- * @param {'asc'|'desc'} direction
- * @returns {Array<Object>}
- */
+// Сортировка товаров по названию
 function sortProductsByName(items = products, direction = 'asc') {
     const copy = [...items];
     return copy.sort((a, b) => {
@@ -435,22 +377,13 @@ function sortProductsByName(items = products, direction = 'asc') {
     });
 }
 
-/**
- * Поиск товара по id (метод find)
- * @param {Array} items
- * @param {number|string} id
- * @returns {Object|undefined}
- */
+// Поиск товара по id
 function findProductById(items = products, id) {
     const numericId = Number(id);
     return items.find((product) => product.id === numericId);
 }
 
-/**
- * Расчет общей стоимости товаров (метод reduce)
- * @param {Array} items
- * @returns {number}
- */
+// Расчёт общей стоимости
 function calculateTotalPrice(items = products) {
     return items.reduce((total, product) => {
         const qty = product.quantity || 1;
@@ -458,31 +391,18 @@ function calculateTotalPrice(items = products) {
     }, 0);
 }
 
-/**
- * Подсчет количества товаров в наличии
- * @param {Array} items
- * @returns {number}
- */
+// Подсчёт товаров в наличии
 function countAvailableProducts(items = products) {
     return items.filter((product) => product.isAvailable).length;
 }
 
-/**
- * Расчет средней цены товаров
- * @param {Array} items
- * @returns {number}
- */
+// Расчёт средней цены
 function calculateAveragePrice(items = products) {
     if (!items.length) return 0;
     return Math.round(calculateTotalPrice(items) / items.length);
 }
 
-/**
- * Комбинированная подготовка списка товаров (поиск + фильтрация + сортировка)
- * @param {Array} items
- * @param {Object} options
- * @returns {Array<Object>}
- */
+// Фильтрация и сортировка товаров
 function prepareProducts(items = products, options = {}) {
     const {
         search = '',
@@ -515,9 +435,7 @@ function prepareProducts(items = products, options = {}) {
     return result;
 }
 
-// =============================================================================
-// Асинхронная загрузка с fallback на локальный массив
-// =============================================================================
+// Загрузка товаров из JSON
 async function loadProductsData() {
     try {
         const response = await fetch('data/products.json');
@@ -525,20 +443,17 @@ async function loadProductsData() {
         const data = await response.json();
         return Array.isArray(data) && data.length > 0 ? data : INITIAL_PRODUCTS;
     } catch {
-        // Fallback при открытии через file:/// (CORS)
+        // Резервный массив при открытии локально
         return INITIAL_PRODUCTS;
     }
 }
 
-// =============================================================================
-// Экспорт в глобальную область видимости (window)
-// =============================================================================
+// Экспорт в глобальную область видимости
 window.STORAGE_KEYS = STORAGE_KEYS;
 window.INITIAL_PRODUCTS = INITIAL_PRODUCTS;
 window.products = products;
 window.loadProductsData = loadProductsData;
 
-// Функции ПЗ №15 и ПЗ №16
 window.formatPrice = formatPrice;
 window.calculateDiscount = calculateDiscount;
 window.calculateFinalPrice = calculateFinalPrice;

@@ -12,6 +12,7 @@ const Catalog = {
         onlyFavorites: false
     },
 
+    // Чтение избранного из хранилища
     getFavorites() {
         try {
             const raw = localStorage.getItem(window.STORAGE_KEYS?.FAVORITES || 'football_shop_favorites');
@@ -21,6 +22,7 @@ const Catalog = {
         }
     },
 
+    // Переключение избранного
     toggleFavorite(productId) {
         const id = Number(productId);
         let favs = this.getFavorites();
@@ -50,6 +52,7 @@ const Catalog = {
         }
     },
 
+    // Обновление счётчиков избранного
     updateFavoriteBadges() {
         const count = this.getFavorites().length;
         document.querySelectorAll('.wishlist-badge').forEach(badge => {
@@ -58,6 +61,7 @@ const Catalog = {
         });
     },
 
+    // Инициализация каталога
     async init() {
         if (typeof window.loadProductsData === 'function') {
             this.allProducts = await window.loadProductsData();
@@ -94,6 +98,7 @@ const Catalog = {
         });
     },
 
+    // Вывод популярных товаров
     initFeaturedProducts() {
         const container = document.getElementById('featured-products');
         if (!container) return;
@@ -101,6 +106,7 @@ const Catalog = {
         container.replaceChildren(...popular.map(p => this.createProductCard(p)));
     },
 
+    // Страница отдельного товара
     initProductDetailPage() {
         const params = new URLSearchParams(window.location.search);
         const productId = Number(params.get('id')) || 1;
@@ -171,12 +177,14 @@ const Catalog = {
         }
     },
 
+    // Инициализация страницы каталога
     initCatalogPage() {
         this.setupToolbar();
         this.setupFilterEvents();
         this.applyFiltersAndRender();
     },
 
+    // Настройка поиска и сортировки
     setupToolbar() {
         const searchInput = document.getElementById('catalog-search-input');
         const searchClear = document.getElementById('catalog-search-clear');
@@ -216,6 +224,7 @@ const Catalog = {
         }
     },
 
+    // Настройка фильтров
     setupFilterEvents() {
         const filterForm = document.querySelector('.filters-form');
         if (!filterForm) return;
@@ -247,6 +256,7 @@ const Catalog = {
         });
     },
 
+    // Применение фильтров и рендер
     applyFiltersAndRender() {
         const favorites = this.getFavorites();
 
@@ -284,6 +294,7 @@ const Catalog = {
         this.renderPagination();
     },
 
+    // Создание карточки товара
     createProductCard(product) {
         const card = document.createElement('article');
         card.className = 'product-card';
@@ -365,7 +376,7 @@ const Catalog = {
         priceEl.textContent = `Цена: ${formattedPrice}`;
         card.appendChild(priceEl);
 
-        // Статус наличия (ПЗ №17 Этап 10)
+        // Статус наличия товара
         const statusEl = document.createElement('p');
         statusEl.className = `product-card__status ${isAvail ? 'product-card__status--available' : 'product-card__status--unavailable'}`;
         statusEl.textContent = isAvail ? 'В наличии' : 'Нет в наличии';
@@ -416,10 +427,12 @@ const Catalog = {
         return card;
     },
 
+    // Генерация HTML карточки
     createCardHtml(product) {
         return this.createProductCard(product).outerHTML;
     },
 
+    // Отрисовка списка товаров
     renderCatalogList() {
         const container = document.getElementById('catalog-products');
         if (!container) return;
@@ -482,6 +495,7 @@ const Catalog = {
         container.replaceChildren(...cardElements);
     },
 
+    // Отрисовка кнопок пагинации
     renderPagination() {
         const paginationContainer = document.getElementById('catalog-pagination');
         if (!paginationContainer) return;

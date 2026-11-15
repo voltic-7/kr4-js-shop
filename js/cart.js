@@ -1,4 +1,5 @@
 const Cart = {
+    // Чтение корзины из хранилища
     getItems() {
         try {
             const raw = localStorage.getItem(window.STORAGE_KEYS?.CART || 'football_shop_cart');
@@ -8,6 +9,7 @@ const Cart = {
         }
     },
 
+    // Сохранение корзины в хранилище
     saveItems(items) {
         try {
             localStorage.setItem(window.STORAGE_KEYS?.CART || 'football_shop_cart', JSON.stringify(items));
@@ -16,6 +18,7 @@ const Cart = {
         } catch {}
     },
 
+    // Добавление товара в корзину
     addItem(productId, count = 1, sourceList = null) {
         const products = sourceList || window.currentProducts || window.INITIAL_PRODUCTS || [];
         const product = products.find(p => p.id === Number(productId));
@@ -46,6 +49,7 @@ const Cart = {
         }
     },
 
+    // Удаление товара из корзины
     removeItem(productId) {
         const id = Number(productId);
         const items = this.getItems().filter(item => item.id !== id);
@@ -57,6 +61,7 @@ const Cart = {
         this.renderCartPage();
     },
 
+    // Изменение количества товара
     updateQuantity(productId, change, isDelta = true) {
         const id = Number(productId);
         const items = this.getItems();
@@ -77,6 +82,7 @@ const Cart = {
         this.renderCartPage();
     },
 
+    // Полная очистка корзины
     clear() {
         this.saveItems([]);
         if (typeof window.showToast === 'function') {
@@ -85,6 +91,7 @@ const Cart = {
         this.renderCartPage();
     },
 
+    // Расчёт стоимости и скидки
     getSummary() {
         const items = this.getItems();
         const count = items.reduce((sum, item) => sum + item.quantity, 0);
@@ -100,6 +107,7 @@ const Cart = {
         return { count, subtotal, discount, total, promoCode };
     },
 
+    // Обновление счётчиков в шапке
     updateBadges() {
         const { count } = this.getSummary();
         document.querySelectorAll('.cart-badge').forEach(badge => {
@@ -110,6 +118,7 @@ const Cart = {
         });
     },
 
+    // Отрисовка страницы корзины
     renderCartPage() {
         const container = document.getElementById('cart-container');
         if (!container) return;

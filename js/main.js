@@ -1,3 +1,4 @@
+// Всплывающее уведомление
 function showToast(message, type = 'info', duration = 3000) {
     let container = document.getElementById('toast-container');
     if (!container) {
@@ -48,6 +49,7 @@ function showToast(message, type = 'info', duration = 3000) {
 window.showToast = showToast;
 
 const ThemeManager = {
+    // Инициализация темы
     init() {
         const saved = localStorage.getItem(window.STORAGE_KEYS?.THEME || 'football_shop_theme');
         const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -66,6 +68,7 @@ const ThemeManager = {
         });
     },
 
+    // Применение темы
     applyTheme(theme) {
         document.documentElement.setAttribute('data-theme', theme);
         const isDark = theme === 'dark';
@@ -78,6 +81,7 @@ const ThemeManager = {
         });
     },
 
+    // Переключение темы
     toggleTheme() {
         const current = document.documentElement.getAttribute('data-theme') || 'light';
         const next = current === 'dark' ? 'light' : 'dark';
@@ -146,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Демонстрационный блок проверки JavaScript (ПЗ №15 и №16)
+    // Блок статуса JavaScript
     const statusMsg = document.getElementById('js-status-message');
     if (statusMsg) {
         statusMsg.textContent = '⚡ JavaScript успешно загружен и инициализирован (Vanilla JS)';

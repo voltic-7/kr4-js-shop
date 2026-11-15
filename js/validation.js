@@ -13,11 +13,13 @@ const FormValidator = {
         agreement: 'Необходимо подтвердить согласие на обработку данных'
     },
 
+    // Инициализация валидации
     init() {
         document.querySelectorAll('.order-form, form[data-validate]').forEach(form => this.attachForm(form));
         document.querySelectorAll('input[type="tel"]').forEach(input => this.attachPhoneMask(input));
     },
 
+    // Маска номера телефона
     attachPhoneMask(input) {
         input.addEventListener('input', () => {
             let value = input.value.replace(/\D/g, '');
@@ -41,6 +43,7 @@ const FormValidator = {
         });
     },
 
+    // Подключение валидации к форме
     attachForm(form) {
         form.setAttribute('novalidate', '');
 
@@ -54,6 +57,7 @@ const FormValidator = {
         form.addEventListener('submit', (e) => this.handleSubmit(e, form));
     },
 
+    // Проверка отдельного поля
     validateField(field) {
         if (!field.name && !field.id) return true;
         if (field.type === 'hidden') return true;
@@ -95,6 +99,7 @@ const FormValidator = {
         return isValid;
     },
 
+    // Отображение статуса ошибки
     setFieldStatus(field, isValid, message = '') {
         const parent = field.closest('.order-form__field') || field.parentElement;
         const errorId = `${field.id || field.name}-error`;
@@ -131,6 +136,7 @@ const FormValidator = {
         }
     },
 
+    // Отправка формы заявки
     async handleSubmit(event, form) {
         event.preventDefault();
 

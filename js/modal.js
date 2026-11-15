@@ -2,6 +2,7 @@ const ModalManager = {
     activeDialog: null,
     lastActiveElement: null,
 
+    // Инициализация модальных окон
     init() {
         document.querySelectorAll('dialog').forEach(dialog => {
             const closeBtn = dialog.querySelector('[data-close-dialog], .dialog-close, #close-order-dialog');
@@ -68,6 +69,7 @@ const ModalManager = {
         });
     },
 
+    // Открытие диалогового окна
     open(dialog, trigger = null) {
         if (!dialog) return;
         this.lastActiveElement = trigger || document.activeElement;
@@ -77,6 +79,7 @@ const ModalManager = {
         if (first) setTimeout(() => first.focus(), 30);
     },
 
+    // Закрытие диалогового окна
     close(dialog = null) {
         const target = dialog || this.activeDialog;
         if (!target) return;
