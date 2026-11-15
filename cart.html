@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Корзина интернет-магазина FootballShop: управление выбранными товарами, расчет скидок и переход к оформлению заказа.">
+    <title>Корзина — FootballShop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/validation.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/catalog.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+<header>
+    <div class="site-header">
+        <a class="site-logo" href="index.html">FootballShop</a>
+
+        <div class="site-header__actions">
+            <button class="theme-toggle" type="button" aria-label="Переключить тему оформления" title="Светлая/тёмная тема">
+                <span class="theme-toggle__icon" aria-hidden="true">🌓</span>
+            </button>
+
+            <a class="header-cart-btn" href="cart.html" aria-label="Перейти в корзину">
+                🛒 <span class="cart-badge">0</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Открыть главное меню">
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <nav class="site-nav" id="primary-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="cart.html" aria-current="page">Корзина <span class="cart-badge">0</span></a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="feedback.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <ol class="breadcrumbs__list">
+            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="index.html">Главная</a></li>
+            <li class="breadcrumbs__item" aria-hidden="true">/</li>
+            <li class="breadcrumbs__item"><span class="breadcrumbs__current" aria-current="page">Корзина</span></li>
+        </ol>
+    </nav>
+
+    <section class="section">
+        <h1 class="section__title">Корзина товаров</h1>
+        <p>
+            Здесь отображаются все выбранные вами товары. Вы можете изменить количество, применить промокод или перейти к оформлению доставки.
+        </p>
+
+        
+        <div id="cart-container">
+            <div class="cart-empty" role="region" aria-label="Загрузка корзины">
+                <p>Загрузка данных корзины...</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 FootballShop. Все права защищены.</p>
+    <p>Магазин оригинальной футбольной экипировки</p>
+</footer>
+
+<button class="scroll-top" type="button" aria-label="Вернуться к началу страницы">↑</button>
+
+</body>
+</html>

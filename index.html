@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Стартовая страница футбольного интернет-магазина FootballShop.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Футбольный интернет-магазин FootballShop">
+    <meta property="og:description" content="Магазин футбольной экипировки и профессионального инвентаря.">
+    <meta property="og:image" content="images/responsive/ball-720.jpg">
+
+    <title>Футбольный интернет-магазин FootballShop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/validation.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/catalog.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+<header>
+    <div class="site-header">
+        <a class="site-logo" href="index.html">FootballShop</a>
+
+        <div class="site-header__actions">
+            <button class="theme-toggle" type="button" aria-label="Переключить тему оформления" title="Светлая/тёмная тема">
+                <span class="theme-toggle__icon" aria-hidden="true">🌓</span>
+            </button>
+
+            <a class="header-cart-btn" href="cart.html" aria-label="Перейти в корзину">
+                🛒 <span class="cart-badge">0</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Открыть главное меню">
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <nav class="site-nav" id="primary-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html" aria-current="page">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="cart.html">Корзина <span class="cart-badge">0</span></a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="feedback.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+    <section class="hero">
+        <h1 class="hero__title">Футбольный магазин FootballShop</h1>
+        <p>
+            Всё для футбола: от профессиональных мячей и бутс до удобной экипировки. 
+            Играй как чемпион вместе с нами!
+        </p>
+        <a class="button" href="#popular">Перейти к товарам</a>
+    </section>
+
+    <section class="section" id="advantages">
+        <h2 class="section__title">Наши преимущества</h2>
+
+        <ul class="advantages-list">
+            <li>широкий ассортимент экипировки;</li>
+            <li>только оригинальные бренды;</li>
+            <li>профессиональные консультанты;</li>
+            <li>быстрая доставка по всей стране.</li>
+        </ul>
+    </section>
+
+    <section class="section" id="popular">
+        <h2 class="section__title">Популярные товары</h2>
+
+        <div class="products-grid" id="featured-products">
+            <article class="product-card">
+                <span class="product-card__badge product-card__badge--new">Новинка</span>
+                <picture>
+                    <source type="image/webp"
+                            srcset="images/responsive/ball-360.webp 360w, images/responsive/ball-720.webp 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <source type="image/jpeg"
+                            srcset="images/responsive/ball-360.jpg 360w, images/responsive/ball-720.jpg 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <img src="images/ball.jpg" alt="Футбольный мяч Лига Чемпионов" width="447" height="447" loading="lazy" decoding="async">
+                </picture>
+                <div class="product-card__category">Мячи</div>
+                <h3 class="product-card__title">Мяч Лига Чемпионов</h3>
+                <p class="product-card__description">Официальный игровой мяч для профессионалов с превосходной аэродинамикой.</p>
+                <p class="product-card__price">Цена: 12000 руб.</p>
+                <div class="product-card__actions">
+                    <button class="button" type="button" data-action="add-to-cart" data-id="1">В корзину</button>
+                    <button class="button button--secondary" type="button" data-product="Мяч Лига Чемпионов Pro">Заказать</button>
+                    <button class="button--favorite" type="button" data-id="1" aria-label="В избранное">♥</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <span class="product-card__badge">Хит</span>
+                <picture>
+                    <source type="image/webp"
+                            srcset="images/responsive/boots-360.webp 360w, images/responsive/boots-720.webp 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <source type="image/jpeg"
+                            srcset="images/responsive/boots-360.jpg 360w, images/responsive/boots-720.jpg 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <img src="images/boots.jpg" alt="Футбольные бутсы Predator Pro" width="447" height="447" loading="lazy" decoding="async">
+                </picture>
+                <div class="product-card__category">Обувь</div>
+                <h3 class="product-card__title">Бутсы Predator Pro</h3>
+                <p class="product-card__description">Профессиональные бутсы для игры на натуральном травяном газоне.</p>
+                <p class="product-card__price">Цена: 18500 руб.</p>
+                <div class="product-card__actions">
+                    <button class="button" type="button" data-action="add-to-cart" data-id="2">В корзину</button>
+                    <button class="button button--secondary" type="button" data-product="Бутсы Predator Pro">Заказать</button>
+                    <button class="button--favorite" type="button" data-id="2" aria-label="В избранное">♥</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <picture>
+                    <source type="image/webp"
+                            srcset="images/responsive/hands-360.webp 360w, images/responsive/hands-720.webp 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <source type="image/jpeg"
+                            srcset="images/responsive/hands-360.jpg 360w, images/responsive/hands-720.jpg 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <img src="images/hands.jpg" alt="Вратарские перчатки Grip" width="447" height="447" loading="lazy" decoding="async">
+                </picture>
+                <div class="product-card__category">Экипировка</div>
+                <h3 class="product-card__title">Вратарские перчатки Grip</h3>
+                <p class="product-card__description">Перчатки с надежным латексным сцеплением и защитой суставов пальцев.</p>
+                <p class="product-card__price">Цена: 6000 руб.</p>
+                <div class="product-card__actions">
+                    <button class="button" type="button" data-action="add-to-cart" data-id="3">В корзину</button>
+                    <button class="button button--secondary" type="button" data-product="Вратарские перчатки Grip">Заказать</button>
+                    <button class="button--favorite" type="button" data-id="3" aria-label="В избранное">♥</button>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section reviews" id="reviews">
+        <h2 class="section__title">Отзывы клиентов</h2>
+        <div class="reviews-grid">
+            <article class="review-card">
+                <div class="review-card__author"><strong>Алексей С.</strong></div>
+                <div class="review-card__text">«Отличный магазин, бутсы подошли идеально, доставили точно в оговоренное время!»</div>
+            </article>
+            <article class="review-card">
+                <div class="review-card__author"><strong>Мария В.</strong></div>
+                <div class="review-card__text">«Качество экипировки на высшем уровне, оригинальный бренд. Буду заказывать ещё.»</div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section faq" id="faq">
+        <h2 class="section__title">Часто задаваемые вопросы</h2>
+        <div class="faq">
+            <article class="faq__item">
+                <h3 class="faq__question">Как осуществляется доставка?</h3>
+                <p class="faq__answer">Мы доставляем курьером по городу, а также экспресс-службами по всей стране в течение 2-5 дней.</p>
+            </article>
+            <article class="faq__item">
+                <h3 class="faq__question">Какие способы оплаты доступны?</h3>
+                <p class="faq__answer">Вы можете оплатить банковской картой онлайн, по счету, либо наличными при получении заказа.</p>
+            </article>
+        </div>
+    </section>
+
+    <aside class="aside-info">
+        <h2 class="aside-info__title">Специальное предложение</h2>
+        <p>
+            Скидка 15% на всю вратарскую экипировку до конца текущего месяца.
+            Подписывайтесь на наши новости, чтобы первыми узнавать о скидках!
+        </p>
+    </aside>
+
+    <section class="section" id="js-demo-section" aria-label="Статус системы">
+        <p class="js-message" id="js-status-message" style="margin: 0; font-size: 14px; color: var(--color-muted);">JavaScript не загружен</p>
+        <div class="product-output" id="js-summary-output" style="margin-top: 4px; font-size: 13px; font-weight: 500;"></div>
+    </section>
+</main>
+
+<footer id="contacts">
+    <p>&copy; 2026 FootballShop. Все права защищены.</p>
+    <p>Магазин оригинальной футбольной экипировки</p>
+</footer>
+
+<dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 class="order-dialog__title" id="order-dialog-title">Быстрое оформление заявки</h2>
+
+    <form class="order-form" id="order-form" action="#" method="post" novalidate>
+        <input id="selected-product" name="selected-product" type="hidden">
+
+        <div class="order-form__field">
+            <label class="order-form__label" for="order-name">Ваше имя *</label>
+            <input class="order-form__control"
+                   id="order-name"
+                   name="name"
+                   type="text"
+                   placeholder="Введите ваше имя"
+                   minlength="2"
+                   autocomplete="name"
+                   required>
+        </div>
+
+        <div class="order-form__field">
+            <label class="order-form__label" for="order-email">E-mail адрес *</label>
+            <input class="order-form__control"
+                   id="order-email"
+                   name="email"
+                   type="email"
+                   placeholder="example@mail.ru"
+                   autocomplete="email"
+                   required>
+        </div>
+
+        <div class="order-form__field">
+            <label class="order-form__label" for="order-phone">Номер телефона *</label>
+            <input class="order-form__control"
+                   id="order-phone"
+                   name="phone"
+                   type="tel"
+                   inputmode="tel"
+                   placeholder="+7 (900) 000-00-00"
+                   autocomplete="tel"
+                   required>
+            <small class="order-form__hint">Формат: +7 (900) 000-00-00</small>
+        </div>
+
+        <div class="order-form__field">
+            <label class="order-form__label" for="order-date">Желаемая дата связи</label>
+            <input class="order-form__control"
+                   id="order-date"
+                   name="date"
+                   type="date">
+        </div>
+
+        <div class="order-form__field order-form__field--full">
+            <label class="order-form__label" for="order-topic">Тема заявки *</label>
+            <select class="order-form__control" id="order-topic" name="topic" required>
+                <option value="">Выберите тему</option>
+                <option value="product">Заказ товара</option>
+                <option value="consultation">Консультация по размеру</option>
+                <option value="delivery">Вопрос по доставке</option>
+            </select>
+        </div>
+
+        <div class="order-form__field order-form__field--full">
+            <label class="order-form__label" for="order-comment">Комментарий к заявке</label>
+            <textarea class="order-form__control"
+                      id="order-comment"
+                      name="comment"
+                      rows="3"
+                      placeholder="Укажите размер, расцветку или дополнительную информацию"></textarea>
+        </div>
+
+        <div class="order-form__field order-form__field--full order-form__field--checkbox">
+            <input class="order-form__control"
+                   id="order-agreement"
+                   name="agreement"
+                   type="checkbox"
+                   required>
+            <label class="order-form__label" for="order-agreement">
+                Я согласен на обработку персональных данных *
+            </label>
+        </div>
+
+        <div class="order-form__actions">
+            <button class="button order-form__button" type="button" id="close-order-dialog">Закрыть</button>
+            <button class="button order-form__button" type="submit">Отправить заявку</button>
+        </div>
+    </form>
+</dialog>
+
+<p class="success-message" id="success-message" hidden>
+    Форма успешно отправлена!
+</p>
+
+<a href="#top" class="scroll-top" aria-label="Вернуться в начало страницы">↑</a>
+</body>
+</html>

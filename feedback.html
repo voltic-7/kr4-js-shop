@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Форма обратной связи и контакты администрации магазина FootballShop.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Обратная связь — FootballShop">
+    <meta property="og:description" content="Напишите нам ваш вопрос, отзыв или предложение по улучшению сервиса.">
+    <meta property="og:image" content="images/responsive/ball-720.jpg">
+
+    <title>Обратная связь — Футбольный интернет-магазин FootballShop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/data.js" defer></script>
+    <script src="js/modal.js" defer></script>
+    <script src="js/validation.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/catalog.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+<header>
+    <div class="site-header">
+        <a class="site-logo" href="index.html">FootballShop</a>
+
+        <div class="site-header__actions">
+            <button class="theme-toggle" type="button" aria-label="Переключить тему оформления" title="Светлая/тёмная тема">
+                <span class="theme-toggle__icon" aria-hidden="true">🌓</span>
+            </button>
+
+            <a class="header-cart-btn" href="cart.html" aria-label="Перейти в корзину">
+                🛒 <span class="cart-badge">0</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Открыть главное меню">
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+            </button>
+        </div>
+
+        <nav class="site-nav" id="primary-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="cart.html">Корзина <span class="cart-badge">0</span></a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заявка</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="feedback.html" aria-current="page">Обратная связь</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+        <a class="breadcrumbs__link" href="index.html">Главная</a>
+        <span class="breadcrumbs__current">Обратная связь</span>
+    </nav>
+
+    <section class="section" id="feedback">
+        <h1 class="section__title">Обратная связь с отделом заботы</h1>
+        <p>Заполните форму ниже, чтобы отправить обращение или пожелание напрямую руководству магазина.</p>
+        
+        <form class="order-form" action="#" method="post" novalidate style="max-width: 680px; margin-bottom: 40px;">
+            <div class="order-form__field">
+                <label class="order-form__label" for="fb-name">Ваше имя *</label>
+                <input class="order-form__control" id="fb-name" name="name" type="text" placeholder="Иван" required>
+            </div>
+            <div class="order-form__field">
+                <label class="order-form__label" for="fb-email">Ваш E-mail *</label>
+                <input class="order-form__control" id="fb-email" name="email" type="email" placeholder="example@mail.ru" required>
+            </div>
+            <div class="order-form__field order-form__field--full">
+                <label class="order-form__label" for="fb-message">Текст обращения *</label>
+                <textarea class="order-form__control" id="fb-message" name="message" rows="5" placeholder="Напишите ваш вопрос, отзыв или предложение..." required></textarea>
+            </div>
+            <div class="order-form__actions">
+                <button class="button order-form__button" type="submit">Отправить сообщение</button>
+            </div>
+        </form>
+
+        <p class="success-message" id="success-message" hidden>
+            Ваше сообщение успешно отправлено! Спасибо за обратную связь.
+        </p>
+    </section>
+
+    <section class="section" id="admin">
+        <h2 class="section__title">Команда поддержки</h2>
+        <p>Наши ведущие специалисты всегда готовы оказать квалифицированную помощь в подборе инвентаря.</p>
+        
+        <div class="products-grid">
+            <article class="product-card">
+                <picture>
+                    <source type="image/webp"
+                            srcset="images/responsive/admin-360.webp 360w, images/responsive/admin-720.webp 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <source type="image/jpeg"
+                            srcset="images/responsive/admin-360.jpg 360w, images/responsive/admin-720.jpg 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <img src="images/admin.jpg" alt="Администратор службы заботы на связи" width="959" height="1280" loading="lazy" decoding="async">
+                </picture>
+                <h3 class="product-card__title">На связи с клиентами</h3>
+                <p class="product-card__description">Быстро отвечает на сообщения и помогает с оформлением заказов онлайн.</p>
+            </article>
+
+            <article class="product-card">
+                <picture>
+                    <source type="image/webp"
+                            srcset="images/responsive/admin1-360.webp 360w, images/responsive/admin1-720.webp 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <source type="image/jpeg"
+                            srcset="images/responsive/admin1-360.jpg 360w, images/responsive/admin1-720.jpg 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <img src="images/admin1.jpg" alt="Администратор отдела контроля качества" width="960" height="1280" loading="lazy" decoding="async">
+                </picture>
+                <h3 class="product-card__title">Контроль качества</h3>
+                <p class="product-card__description">Лично инспектирует каждую партию бутс и мячей перед отправкой покупателям.</p>
+            </article>
+
+            <article class="product-card">
+                <picture>
+                    <source type="image/webp"
+                            srcset="images/responsive/admin2-360.webp 360w, images/responsive/admin2-720.webp 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <source type="image/jpeg"
+                            srcset="images/responsive/admin2-360.jpg 360w, images/responsive/admin2-720.jpg 720w"
+                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw">
+                    <img src="images/admin2.jpg" alt="Консультант по подбору экипировки" width="960" height="1280" loading="lazy" decoding="async">
+                </picture>
+                <h3 class="product-card__title">Индивидуальный подбор</h3>
+                <p class="product-card__description">Помогает подобрать оптимальный размер обуви и экипировки под особенности вашей игры.</p>
+            </article>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 FootballShop. Все права защищены.</p>
+    <p>Магазин оригинальной футбольной экипировки</p>
+</footer>
+
+<a href="#top" class="scroll-top" aria-label="Вернуться в начало страницы">↑</a>
+</body>
+</html>
